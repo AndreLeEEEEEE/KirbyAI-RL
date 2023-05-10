@@ -1,6 +1,8 @@
 # KirbyRL
 A reinforcement learning project playing Kirby's Dream Land
 
+Inspired by https://github.com/lixado/PyBoy-RL
+
 Recommended Python version: 3.10.6
 ## How to set up the environment
 
@@ -46,7 +48,7 @@ Recommended Python version: 3.10.6
 
 * [x] Define step()
 
-* [x] Look over the existing project: https://github.com/lixado/PyBoy-RL [In Progress]
+* [x] Look over the existing project: https://github.com/lixado/PyBoy-RL
 
 * [x] Define the random action part of act()
 
