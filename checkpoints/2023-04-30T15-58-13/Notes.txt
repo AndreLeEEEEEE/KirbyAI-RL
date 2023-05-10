@@ -1,0 +1,32 @@
+self.epsilon_decay = 0.9995
+episodes = 100
+timeLimit = 60
+if curr_Gamestate.health < prev_Gamestate.health:
+    return -2000
+
+# Massive negative reward if dead
+if curr_Gamestate.health == 0 and prev_Gamestate.health != 0:
+    return -1000000
+
+# Massive negative reward if Kirby reaches the warpstar
+if curr_Gamestate.health > 0 and curr_Gamestate.game_state == 6 and prev_Gamestate.game_state != 6:
+    return -1000000
+
+if curr_Gamestate.score > prev_Gamestate.score:
+    return 100000
+
+# Moving right or left
+if curr_Gamestate.kirby_x_position > prev_Gamestate.kirby_x_position:
+    return 3
+
+# Moving left
+if curr_Gamestate.kirby_x_position < prev_Gamestate.kirby_x_position:
+    return 1
+
+# "Standing still"
+if curr_Gamestate.kirby_x_position == prev_Gamestate.kirby_x_position:
+    return -30
+
+# Stay away from the level ceiling, no enemies are there
+    if curr_Gamestate.kirby_y_position == 16:
+      return -1000
